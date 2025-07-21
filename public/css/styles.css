@@ -1,0 +1,836 @@
+/****************************TAGS*********************************/
+body {
+  margin: 0;
+  background-color: #f5efe6;
+}
+hr {
+  margin: 20px 0px;
+  border: solid 0.5px black;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+.subtitle-text,h3 {
+  text-align: center;
+  font-size: 5rem;
+  margin: 0;
+}
+
+h2{
+  font-size: 3rem;
+}
+
+img {
+  width: 100%;
+}
+
+/*****************************CLASSES AND IDS*********************************/
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quicksand {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.header-bar{
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  column-gap: 40px;
+}
+
+.header-bar>div:nth-of-type(3){
+  justify-self: end;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 170px;
+  width: 100%;
+}
+
+.medium-width-square,
+.small-width-square {
+  width: 170px;
+  height: 170px;
+  border: solid 0.5px black;
+}
+
+.small-width-square {
+  text-align: center;
+  align-content: center;
+}
+
+.custom-link,
+.wide-bg-btn {
+  text-decoration: none;
+  background-color: transparent; /* Initial color */
+  color: black;
+  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
+  padding: 5px;
+  text-align: center;
+}
+
+.custom-link:hover {
+  background-color: black; /* Target color on hover */
+  color: white;
+}
+
+.red-color {
+  color: rgb(153, 0, 0);
+}
+
+.about-div,
+.contact-div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /*grid-template-columns: minmax(660px,1fr) minmax(600px,1fr);*/
+  column-gap: 2%;
+  row-gap: 20px;
+}
+
+.contact-div {
+  text-align: center;
+  align-items: center;
+}
+
+.about-div > .contact-div {
+  border: none;
+}
+
+.contact-div > a {
+  border: solid 0.5px black;
+}
+.contact-div > .custom-link {
+  position: relative;
+}
+
+.contact-div > a > svg {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  height: 25px;
+  width: 25px;
+}
+
+.grid-item-content {
+  text-align: center;
+  align-content: center;
+}
+
+.subtitle-text {
+  font-size: 2rem;
+  margin: 10% 0;
+}
+
+.gray-img-effect {
+  filter: grayscale(100%);
+  transition: .3s ease-in-out;
+}
+
+.gray-img-effect:hover{
+  filter: grayscale(0%);
+}
+
+.wide-bg-btn-div {
+  background-color: rgb(153, 0, 0);
+  margin: 0 0.2rem;
+  padding: 20px;
+  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
+}
+
+.wide-bg-btn-div:hover {
+  background-color: black; /* Target color on hover */
+}
+
+.wide-bg-btn {
+  color: white;
+}
+
+#socials-link {
+  background-color: rgb(153, 0, 0);
+  color: white;
+  border: none;
+}
+
+#socials-link:hover {
+  background-color: black; /* Target color on hover */
+}
+
+#h1-div,
+.grid-item-content,
+.rectangle {
+  align-content: center;
+  border: solid 0.5px black;
+  padding: 0 40px;
+}
+
+.rectangle {
+  padding: 40px;
+}
+
+/*used padding 0px for grid-item-image below the previous one for priority purposes*/
+.grid-item-image {
+  padding: 0px;
+}
+
+.grid-span2 {
+  grid-column: span 2;
+}
+
+.grid-row-span2{
+  grid-row: span 2;
+}
+
+.grid-column-start-2 {
+  grid-column: 2/3;
+}
+
+.dotted-effect {
+  background: radial-gradient(circle, black 1px, transparent 1px);
+  background-size: 5px 5px; /* Adjust to control dot size and spacing */
+  background-blend-mode: multiply;
+}
+
+#technical-skills-section{
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.roadmap{
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  margin: 100px 80px 20px;
+  height: 5px;
+}
+
+.roadmap-square{
+  width: 60px;
+  height: 60px;
+  background-color: #f5efe6;
+  border: solid 1px black;
+  position: relative;
+  bottom: 35px;
+  padding: 5px;
+  border-radius: 0.5rem;
+  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
+}
+
+.roadmap-square:hover{
+  background-color: black;
+}
+
+.roadmap-head{
+  width: 75px;
+  height: 75px;
+  position: relative;
+  bottom: 35px;
+  right: 60px;
+}
+
+.roadmap>.roadmap-square>img{
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.hover-skill-text{
+  visibility: hidden;
+  text-align: left;
+  width: 50px;
+  opacity: 0;
+  position: absolute;
+  bottom: 72px;
+  font-size: 12px;
+  transition: opacity 0.3s;
+}
+
+/* Show tooltip text on hover */
+.roadmap-square:hover .hover-skill-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.vertical-roadmap-line{
+  border: solid 0.5px black;
+  height: 105px;
+  width: 5px;
+  background-color: black;
+}
+
+#technical-skills-section>#roadmap-div>hr{
+  margin: 20px 30% 0px 11%;
+}
+
+#technical-skills-section>.subtitle-text,#footer-section{
+  margin: 40px 0px 0px;
+}
+
+#technical-skills-section>div:nth-of-type(3){
+  margin: 20px 10% 40px;
+  padding: 40px;
+height: 10px;
+border-top: none;
+border-bottom: none;
+}
+
+.marquee {
+  overflow: hidden; /* Hide overflowing text */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+
+.marquee span {
+  display: inline-block;
+  padding-left: 10%; /* Start from outside the container */
+  animation: scrollText 20s linear infinite; /* Apply the animation */
+}
+
+span>.roadmap-square{
+  margin: 0px 10px;
+  width: 150px;
+  height: 50px;
+  border-radius: 0px;
+  background-color: black;
+}
+
+.black-bg{
+  background-color: black;
+}
+
+#experience-section,#education-section,#project-section,.header-bar{
+  margin: 40px 40px 0;
+}
+
+#about-section,#technical-skills-section,hr,.nav-bar,.footer-flex{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.experience-div{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  column-gap: 40px;
+  margin-top: 40px;
+  line-height: 1.5;
+}
+
+
+.sliding-img-container{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 40%;
+}
+
+/* Sliding div initial state */
+.sliding-div {
+  position: absolute;
+  bottom: -100%; /* Hide the sliding div below the container */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+  color: white; /* Text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: bottom 0.5s ease; /* Smooth slide effect */
+  padding: 10px; /* Add some padding inside the div */
+  box-sizing: border-box; /* Ensures padding doesn’t affect width/height */
+}
+
+/* Hover effect */
+.sliding-img-container:hover .sliding-div {
+  bottom: 0; /* Slide the div up into view */
+}
+
+#education-section>div:nth-of-type(2){
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 30px;
+}
+
+#education-section>div:nth-of-type(2)>div>img{
+  width: 100%;
+  background-size: cover;
+}
+
+#education-section>div:nth-of-type(2)>div>.sliding-div>.rectangle{
+  border: solid 0.5px white;
+  height: 50%;
+  width: 60%;
+}
+
+.about-div>.rectangle,.experience-div>.quicksand>p,.project-grid>p,.project-grid-black>p{
+  text-align: justify;
+}
+
+.projects-div,#footer-flex{
+  
+  border: solid 4px black;
+
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+
+.project-grid,.project-grid-black{
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr;
+  gap: 3%;
+  padding: 40px;
+}
+
+
+.project-grid-black,#footer-section{
+  background-color: black;
+  color: #f5efe6;
+  
+}
+
+.project-grid>p,.project-grid-black>p{
+  line-height: 1.7;
+}
+
+.project-grid>img,.project-grid-black>img{
+  width: 100%;
+}
+
+.project-grid>p>a{
+  text-decoration: none;
+}
+
+.footer-flex>hr{
+  border: solid 0.5px #f5efe6;
+}
+
+.footer-flex{
+  text-transform: uppercase;
+}
+
+#footer-section{
+  padding-top: 40px;
+  line-height: 1.5;
+}
+
+.footer-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-flex>h2{
+  text-align: left;
+}
+
+.footer-flex>hr{
+  border: solid 0.5px grey;
+}
+
+.grey-color{
+  color: grey;
+}
+
+.whatsapp-btn{
+  background-color: rgb(153, 0, 0);
+  position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #f5efe6;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    z-index: 1000;
+}
+
+.whatsapp-btn>svg{
+  width: 80%;
+  height: 80%;
+}
+
+/****************************KEYFRAMES********************************/
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+/****************************MEDIA*********************************/
+
+@media (max-width: 1930px){
+.header-bar{
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.header-bar>div>h1{
+  font-size: 3.5rem;
+}
+
+.roadmap-square{
+  width: 60px;
+  height: 60px;
+  bottom: 35px;
+}
+
+}
+
+@media (max-width: 1420px){
+
+  .header-bar>div>h1{
+    font-size: 2.5rem;
+  }
+
+  #technical-skills-section>#roadmap-div>hr{
+    margin-left: 14%;
+  }
+
+  .projects-div>.project-grid,.projects-div>.project-grid-black{
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .projects-div>.project-grid>img,.projects-div>.project-grid-black>img{
+    grid-column:  span 2;
+  }
+
+  .contact-div{
+    padding: 20px;
+  }
+
+  .roadmap-square{
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+  }
+
+  .experience-div{
+    grid-template-columns: 1fr 0.5fr;
+    row-gap: 40px;
+  }
+
+  .experience-div img{
+    align-self: end;
+  }
+  
+  .hover-skill-text{
+    bottom: 62px;
+  }
+
+}
+
+@media (max-width: 1230px) {
+  .contact-div{
+grid-template-columns: 1fr;
+row-gap: 10px;
+  }
+  h1{
+    font-size: 3rem;
+  }
+  .grid-item-content>h2{
+    font-size: 2.5rem;
+  }
+
+  .grid-item-content>.subtitle-text{
+    font-size: 1.5rem;
+    margin: 20px 0;
+  }
+
+  .roadmap-square{
+    width: 40px;
+    height: 40px;
+    bottom: 25px;
+  }
+
+  #technical-skills-section>#roadmap-div>hr{
+    margin-top: 0px;
+  }
+
+  .hover-skill-text{
+    bottom: 52px;
+  }
+
+}
+
+@media (max-width: 1050px){
+  .header-bar>div>h1{
+    font-size: 2rem;
+  }
+.grid-item-content>h2{
+  font-size: 2rem;
+}
+.grid-item-content>.subtitle-text{
+  font-size: 1rem;
+}
+
+.roadmap{
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+}
+
+@media (max-width: 990px){
+  .roadmap{
+    margin-left: 20px;
+    margin-right: 0px;
+  }
+
+  #technical-skills-section>#roadmap-div>hr{
+    margin-left: 13%;
+    margin-right: 25%;
+  }
+
+  #education-section>div:nth-of-type(2){
+    flex-direction: column;
+  }
+
+  #education-section>div:nth-of-type(2)>.sliding-img-container{
+    width: 60%;
+    align-self: center;
+    border: solid 0.5px black;
+    padding: 20px;
+  }
+
+  .project-grid,.project-grid-black{
+
+    grid-auto-rows: auto;
+  }
+
+  .project-grid>p,.project-grid-black>p{
+    grid-column: span 2;
+  }
+
+  .projects-div>div:nth-of-type(3){
+    padding-bottom: 100px;
+  }
+
+}
+
+@media (max-width: 870px){
+
+  #experience-section,.header-bar{
+    margin: 20px 20px 0;
+  }
+  
+  #about-section,#technical-skills-section,#project-section,#education-section,hr,.nav-bar,.footer-flex{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  #h1-div{
+    padding: 0 20px;
+  }
+
+  .nav-bar{
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .about-div{
+    grid-template-columns: 1fr;
+  }
+
+  .about-div>.grid-item-content{
+    padding: 40px;
+  }
+
+  .roadmap{
+    margin-left: 32px;
+    margin-right: 0px;
+  }
+
+  .roadmap-square{
+    width: 30px;
+    height: 30px;
+    bottom: 19px;
+  }
+
+  #technical-skills-section>div>div:nth-of-type(1){
+    margin-top: 50px;
+  }
+
+  .marquee span {
+    animation: scrollText 30s linear infinite; /* Apply the animation */
+  }
+
+  .experience-div{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .experience-div img{
+    align-self: end;
+  }
+
+  .hover-skill-text{
+    bottom: 42px;
+  }
+
+  #education-section>div:nth-of-type(2)>.sliding-img-container{
+    width: 70%;
+  }
+
+}
+
+@media (max-width: 680px){
+.header-bar{
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr;
+  
+  row-gap: 20px;
+}
+
+.header-bar>.medium-width-square,.header-bar>.small-width-square{
+  height: 100px;
+  width: 100px;
+}
+
+.header-bar>.medium-width-square>img{
+  height: 100%;
+}
+
+.header-bar>.small-width-square>p{
+  font-size: 0.7rem;
+}
+
+.header-bar>div:nth-of-type(2){
+  grid-area: 2/1/3/3;
+}
+
+.roadmap{
+  width: 738px;
+  margin-left: 60px;
+}
+
+#roadmap-div {
+
+  
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents line breaks */
+  scrollbar-width: thin; /* For styling scrollbars (Firefox) */
+  -ms-overflow-style: none; /* For styling scrollbars (IE 10+) */
+}
+
+#roadmap-div::-webkit-scrollbar {
+  height: 8px; /* Adjust scrollbar height */
+}
+
+#roadmap-div::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+#roadmap-div::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Scrollbar color on hover */
+}
+
+#technical-skills-section>#roadmap-div>hr{
+  width: 590px;
+ margin-right: 50%;
+  margin-left: 140px;
+}
+
+#technical-skills-section>#roadmap-div>p:nth-of-type(1){
+  margin-left: 180px;
+}
+
+.experience-div{
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.5fr 1 0.5fr;
+}
+
+.experience-div .quicksand{
+    align-content: center;
+    border: solid 0.5px black;
+    padding: 40px;
+}
+
+#education-section>div:nth-of-type(2)>.sliding-img-container{
+  width: 80%;
+}
+
+}
+
+@media (max-width: 530px){
+  .projects-div{
+   padding: 20px;
+  }
+
+  #project-section{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .projects-div{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .project-grid,.project-grid-black{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .projects-div>hr:nth-of-type(1){
+    display: none;
+  }
+}
+
+
+@media (max-width: 430px){
+  .header-bar{
+    column-gap: 10px;
+  }
+
+  #experience-section,.header-bar{
+    margin: 5px 5px 0;
+  }
+  
+  #about-section,#technical-skills-section,#education-section,hr,.nav-bar,.footer-flex{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .about-div>.grid-item-content,.about-div>div:nth-of-type(3),#technical-skills-section>.rectangle,.experience-div .quicksand{
+    padding: 20px;
+  }
+
+  #technical-skills-section>.rectangle>h2,#experience-section h2,#education-section h2,#project-section h2{
+    font-size: 2rem;
+  }
+
+}
+
+
