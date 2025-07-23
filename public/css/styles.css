@@ -1,7 +1,7 @@
 /****************************TAGS*********************************/
 body {
   margin: 0;
-  background-color: #f5efe6;
+  background-color: #FFFCFB;
 }
 hr {
   margin: 20px 0px;
@@ -68,7 +68,7 @@ img {
 .small-width-square {
   width: 170px;
   height: 170px;
-  border: solid 0.5px black;
+  border: dotted 5px black;
 }
 
 .small-width-square {
@@ -87,12 +87,12 @@ img {
 }
 
 .custom-link:hover {
-  background-color: black; /* Target color on hover */
+  background-color: #D91656; /* Target color on hover */
   color: white;
 }
 
 .red-color {
-  color: rgb(153, 0, 0);
+  color: #D91656;
 }
 
 .about-div,
@@ -148,14 +148,14 @@ img {
 }
 
 .wide-bg-btn-div {
-  background-color: rgb(153, 0, 0);
+  background-color: #D91656;
   margin: 0 0.2rem;
   padding: 20px;
   transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
 }
 
 .wide-bg-btn-div:hover {
-  background-color: black; /* Target color on hover */
+  background-color:black; /* Target color on hover */
 }
 
 .wide-bg-btn {
@@ -163,7 +163,7 @@ img {
 }
 
 #socials-link {
-  background-color: rgb(153, 0, 0);
+  background-color: #D91656;
   color: white;
   border: none;
 }
@@ -178,6 +178,9 @@ img {
   align-content: center;
   border: solid 0.5px black;
   padding: 0 40px;
+}
+#h1-div{
+  border: border 4px black;
 }
 
 .rectangle {
@@ -234,7 +237,7 @@ img {
 }
 
 .roadmap-square:hover{
-  background-color: black;
+  background-color: #D91656;
 }
 
 .roadmap-head{
@@ -455,7 +458,7 @@ span>.roadmap-square{
 }
 
 .whatsapp-btn{
-  background-color: rgb(153, 0, 0);
+  background-color: #D91656;
   position: fixed;
     bottom: 20px;
     right: 20px;
@@ -466,7 +469,7 @@ span>.roadmap-square{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px black;
     font-size: 24px;
     z-index: 1000;
 }
